@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './footerWebsiteMenuItem.module.scss'
 
 import { PiCaretDownBold } from "react-icons/pi";
+import Link from 'next/link';
 
 interface MenuItemProp {
   menuItem:{
@@ -25,11 +26,12 @@ const FooterWebsiteMenuItem = ({ menuItem }: MenuItemProp) => {
           <PiCaretDownBold className={`${styles.caretIcon} ${isOpen ? styles.caretFlipped : ''}`}/>
         </div>
         <ul className={`${styles.links} ${isOpen ? styles.linksExtended : ''}`} >
-          {menuItem.innerLinks.map((link, index) => <li className={styles.link} key={index}><a>{link}</a></li>)}
+          {menuItem.innerLinks.map((link, index) => <li className={styles.link} key={index}><Link href ='/'>{link}</Link></li>)}
         </ul>
       </li>
     </ul>
   )
 }
+
 
 export default FooterWebsiteMenuItem;
